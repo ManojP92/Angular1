@@ -1,0 +1,14 @@
+<table>
+  <thead>
+      <th>S.no.</th>
+      <th>Name</th>
+      <th>Id</th>
+  </thead>
+  <tbody>
+      <tr *ngFor="let employee of employeeList; let i = index">
+          <td>{{i+1}}</td>
+          <td>{{employee.name}}</td>
+          <td>{{employee.Id}}</td>
+      </tr>
+  </tbody>
+</table>

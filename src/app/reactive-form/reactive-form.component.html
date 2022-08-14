@@ -1,0 +1,34 @@
+<div class="content">
+  <h2>Registration Form</h2>
+  {{registrationForm.value | json}}
+
+  <form [formGroup]="registrationForm">
+      <div class="form-group">
+          <label>Username</label>
+          <input type="text"
+          [class.is-invalid]="registrationForm.get('userName')?.touched && registrationForm.get('userName')?.invalid"
+          class="form-control" formControlName="userName">
+          <!-- <small class="text-danger"
+          [class.d-none]="registrationForm.get('userName')?.untouched || registrationForm.get('userName')?.valid">User name is required</small> -->
+          <div *ngIf="registrationForm.get('userName')?.touched && registrationForm.get('userName')?.invalid">
+              <small
+              *ngIf="registrationForm.get('userName')?.errors?.['required']"
+               class="text-danger">User name is required</small>
+              <small
+              *ngIf="registrationForm.get('userName')?.errors?.['minlength']"
+               class="text-danger">Username length should be minimum 3 char</small>
+
+          </div>
+      </div>
+      <div class="form-group">
+          <label>Password</label>
+          <input type="password" class="form-control" formControlName="password">
+      </div>
+      <br>
+
+      <button class="btn btn-primary" type="submit">Register</button>
+      <button class="btn btn-primary" style="margin-left: 30px" (click)="loadData()">Load Data</button>
+
+  </form>
+
+</div>

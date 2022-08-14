@@ -1,0 +1,11 @@
+
+<h3>one way binding:</h3>
+<h3>Welcome, {{fname}}{{lname}}</h3>
+<h3>Event binding:</h3>
+<button (click)="showalert()"> click here</button>
+<button (dblclick)="getName()">Double click here</button>
+<div></div>
+<h3>Two way data binding</h3>
+<input [(ngModel)]="username">
+<div>{{username}}</div>
+<h4>Data goes from template to component and back to template</h4>

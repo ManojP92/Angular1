@@ -1,0 +1,4 @@
+<p>demo-parent works!</p>
+<button (click)="toggleChild()">Toggle child</button>
+<input type="text" [(ngModel)]="channelName">
+<app-demo-child *ngIf="isChild" [channelName]="channelName"></app-demo-child>

@@ -1,0 +1,81 @@
+<div class="content">
+  <h1>Participents details Form</h1>
+  <form #userForm="ngForm" (ngSubmit)="onSubmit()">
+
+      <div class="mb-3">
+          <label class="form-label">Name</label>
+          <input type="text" class="form-control"
+           #name="ngModel" required
+           [class.is-invalid]="name.invalid"
+            id="name" name="userName" [(ngModel)]="user.name">
+            <small class="text-danger" [class.d-none]="name.valid || name.untouched" >Name is required</small>
+      </div>
+
+      <div class="mb-3">
+          <label class="form-label">Email</label>
+          <input type="email" class="form-control"
+          #email="ngModel" required
+          [class.is-invalid]="email.invalid"
+           id="email" name="email"   [(ngModel)]="user.email">
+           <small class="text danger" [class.d-none]="email.valid||email.untouched">Mail is required</small>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Mobile</label>
+            <input type="mobile" class="form-control"
+            #mobile="ngModel" required
+            [class.is-invalid]="mobile.invalid"
+            id="mobile" name="mobile" [(ngModel)]="user.mobile">
+            <small class="text danger" [class.d-none]="mobile.valid||mobile.untouched">Mobile no. is required</small>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Gender</label>
+              <select class="form-select" aria-label="Default select example" name="gender"   [(ngModel)]="user.gender">
+                  <option disabled>Select your gender</option>
+                  <option *ngFor=" let data of gender" value={{data}}>{{data}}</option>
+              </select>
+          </div>
+
+      <div class="mb-3">
+        <label class="form-label">Meet type</label>
+          <select class="form-select" aria-label="Default select example" name="topic"   [(ngModel)]="user.topic">
+              <option disabled>Select a meet</option>
+              <option *ngFor=" let data of topics" value={{data}}>{{data}}</option>
+          </select>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Weight Class</label>
+          <select class="form-select" aria-label="Default select example" name="wtclass"   [(ngModel)]="user.wtclass">
+              <option disabled>Select your weight catagory</option>
+              <option *ngFor=" let data of wtclass" value={{data}}>{{data}}</option>
+          </select>
+      </div>
+
+      <div class="mb-3">
+          <div class="form-check">
+              <input class="form-check-input" type="radio" name="timePreference" id="timePreference"   [(ngModel)]="user.timePreference" value="morning">
+              <label class="form-check-label" for="flexRadioDefault1">
+                 Amature (Participated in less than 3 meets!)
+              </label>
+          </div>
+          <div class="form-check">
+              <input class="form-check-input" type="radio" name="timePreference"  [(ngModel)]="user.timePreference" id="timePreference" value="evening" >
+              <label class="form-check-label" for="flexRadioDefault2">
+                  Proffessional (Participated in more than 3 meets!)
+              </label>
+          </div>
+      </div>
+
+      <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="subscribe" id="flexCheckIndeterminate"  [(ngModel)]="user.subscribe">
+          <label class="form-check-label" for="flexCheckIndeterminate">
+            Send me meet updates on whatsapp also!
+          </label>
+        </div>
+        <br>
+
+        <button [disabled]="userForm.form.invalid" class="btn btn-primary" type="submit"> Submit Form</button>
+  </form>
+</div>

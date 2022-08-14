@@ -1,0 +1,14 @@
+<h3>Component Interactions!</h3>
+<h1>Parent Component</h1>
+<small>Parent property- userLoggedIn: <ng-container *ngIf="userLoggedIn; else elseTemplate">
+  <small style="color: rgb(66, 107, 3); background-color: aquamarine;">{{userLoggedIn}}</small>
+</ng-container>
+<ng-template #elseTemplate>
+  <small style="color: rgb(255, 0, 0); background-color: bisque;">{{userLoggedIn}}</small>
+</ng-template>
+</small>
+<div></div><button class="button" (click)="doToggle()"> Toggle it!</button>
+<app-sub-child [loggedIn]="userLoggedIn" (childStringData)="ReceivedData($event)"> </app-sub-child> <!--Interaction taking place here-->
+
+<p><p><p><p><p><p><p><p><p></p>
+ <h4>{{childDataReceived}}</h4>

@@ -1,0 +1,14 @@
+<p>sub-child works!</p>
+<p><small>Child's property loggedIn=userLoggedIn= <ng-container *ngIf="loggedIn; else elseTemplate">
+  <small style="color: green; background-color: aquamarine;">{{loggedIn}}</small>
+</ng-container>
+<ng-template #elseTemplate>
+  <small style="color: red; background-color: bisque;">{{loggedIn}}</small>
+</ng-template>
+(coming from child component)</small></p>
+<h2>Child Component:</h2>
+<p style="border: 3px solid blue;" *ngIf="loggedIn">Welcome back!</p>
+<p style="border: 3px solid lightcoral;" *ngIf="!loggedIn">Please log in</p>
+
+<p><p><p><p><p></p><p><p><p></p>
+<button class="button" (click)="SendData()">Send data to Parent Component!</button>
